@@ -7,67 +7,69 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int qtd, multi = 1, subtracao = 0;
-        Double n;
-        int n1, expo, n2, porc, div;
+        int qtd;
+        int n1, expo, n2;
 
         System.out.println("1- Soma\n2- Multiplicacao\n3- Divisão" +
                 "\n4- Subtração\n5- Potenciacao\n6- Porcentagem\n7- Raiz");
         int opcao = sc.nextInt();
 
         if (opcao == 1) {
-            ArrayList<Double> listNumero = new ArrayList<>();
+            ArrayList<Double> listNumeros = new ArrayList<>();
             Soma soma = new Soma();
             System.out.println("Quantos numeros ira informar? ");
             qtd = sc.nextInt();
             for (int i = 0; i < qtd; i++) {
                 System.out.println("Digite o numero: ");
-                listNumero.add(sc.nextDouble());
+                listNumeros.add(sc.nextDouble());
             }
-            soma.somar(listNumero);
-            System.out.println(soma.toString());
+            System.out.println(soma.somar(listNumeros));
         } else if (opcao == 2) {
+            ArrayList<Double> listNumeros = new ArrayList<>();
+            Multiplicar multiplicar = new Multiplicar();
             System.out.println("Quantos numeros ira informar? ");
             qtd = sc.nextInt();
             for (int i = 0; i < qtd; i++) {
                 System.out.println("Digite o numero: ");
-                n1 = sc.nextInt();
-                multi = multi * n1;
+                listNumeros.add(sc.nextDouble());
             }
-            System.out.println(multi);
+            System.out.println(multiplicar.multiplicar(listNumeros));
         } else if (opcao == 3) {
             System.out.println("Digite um numero: ");
             n1 = sc.nextInt();
             System.out.println("Digite um numero: ");
             n2 = sc.nextInt();
-            div = n1 / n2;
-            System.out.println(div);
+            Divisao divisao = new Divisao();
+            System.out.println(divisao.divisao(n1, n2));
         } else if (opcao == 4) {
+            ArrayList<Double> listNumeros = new ArrayList<>();
+            Menos menos = new Menos();
             System.out.println("Quantos numeros ira informar? ");
             qtd = sc.nextInt();
             for (int i = 0; i < qtd; i++) {
                 System.out.println("Digite o numero: ");
-                n = sc.nextDouble();
-                subtracao -= n;
+                listNumeros.add(sc.nextDouble());
             }
-            System.out.println(subtracao);
+            System.out.println(menos.subtrair(listNumeros));
         } else if (opcao == 5) {
             System.out.println("Base: ");
             n1 = sc.nextInt();
             System.out.println("Expoente: ");
             expo = sc.nextInt();
-            System.out.println(Math.pow(n1, expo));
+            Potencia potencia = new Potencia();
+            System.out.println(potencia.potencia(n1, expo));
         } else if (opcao == 6) {
             System.out.println("Digite um numero: ");
             n1 = sc.nextInt();
             System.out.println("Digite um numero: ");
             n2 = sc.nextInt();
-            porc = n1 % n2;
-            System.out.println(porc);
+            Porcentagem porcentagem = new Porcentagem();
+            System.out.println(porcentagem.porcentagem(n1, n2));
         } else if (opcao == 7) {
             System.out.println("Digite um numero: ");
             n1 = sc.nextInt();
-            System.out.println(Math.sqrt(n1));
+            Raiz raiz = new Raiz();
+            System.out.println(raiz.raiz(n1));
         }
     }
 }
