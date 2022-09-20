@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -6,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int qtd, soma = 0, multi = 1, subtracao = 0;
+        int qtd, multi = 1, subtracao = 0;
         Double n;
         int n1, expo, n2, porc, div;
 
@@ -15,14 +16,16 @@ public class Main {
         int opcao = sc.nextInt();
 
         if (opcao == 1) {
+            ArrayList<Double> listNumero = new ArrayList<>();
+            Soma soma = new Soma();
             System.out.println("Quantos numeros ira informar? ");
             qtd = sc.nextInt();
             for (int i = 0; i < qtd; i++) {
                 System.out.println("Digite o numero: ");
-                n = sc.nextDouble();
-                soma += n;
+                listNumero.add(sc.nextDouble());
             }
-            System.out.println(soma);
+            soma.somar(listNumero);
+            System.out.println(soma.toString());
         } else if (opcao == 2) {
             System.out.println("Quantos numeros ira informar? ");
             qtd = sc.nextInt();
